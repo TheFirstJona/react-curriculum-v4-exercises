@@ -3,7 +3,7 @@
 
 export default function StudentWork() {
   const name = 'Jonathan Torres-Tomas';
-  const age = 25;
+  const age = 22;
   const hobbies = [
     'Playing the trombone in symphonic bands',
     'Trail maintenance and outdoor volunteering',
