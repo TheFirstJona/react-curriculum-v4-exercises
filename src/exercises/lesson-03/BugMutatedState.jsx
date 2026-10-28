@@ -9,12 +9,12 @@
 */
 
 import { useState } from 'react';
+
 export default function BugMutatedState() {
-  let [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   function handleAdd() {
-    count++;
-    setCount(count);
+    setCount((prev) => prev + 1);
   }
 
   return (
@@ -26,4 +26,4 @@ export default function BugMutatedState() {
 }
 
 // Explanation:
-// (Write your explanation here)
+// The original code mutated state directly with count++ before passing it to setCount, violating React's immutability principles. State should always be treated as read-only. Passing a functional update ((prev) => prev + 1) directly to setCount guarantees React calculates the next state from the most recent count without mutating variables directly.
