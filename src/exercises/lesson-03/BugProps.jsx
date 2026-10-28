@@ -12,11 +12,13 @@
   Use the commented "Explanation" section at the bottom of this lesson's components.
 */
 
+import { useState } from 'react';
+
 export default function BugProps({ name = 'friend' }) {
-  let message = 'Hello, ' + name;
+  const [message, setMessage] = useState(`Hello, ${name}`);
 
   function handleChange() {
-    message = 'Hi, ' + name + '!';
+    setMessage(`Hi, ${name}!`);
   }
 
   return (
@@ -28,4 +30,4 @@ export default function BugProps({ name = 'friend' }) {
 }
 
 // Explanation:
-// (Write your explanation here)
+// "message" was declared as a plain local variable using "let". In React, reassigning local variables does not trigger a re-render, so the DOM remained unchanged. Converting "essage"to component state via "seState" llows React to track changes and re-render the UI whenever "setmessage" is called.
