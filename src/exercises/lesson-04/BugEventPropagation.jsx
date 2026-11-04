@@ -3,11 +3,12 @@
 
 export default function BugEventPropagation() {
   function handleOuterClick() {
-    alert("RED BOX CLICKED ❌ Don't show me!");
+    alert('RED BOX CLICKED');
   }
 
-  function handleInnerClick() {
-    alert('Button Clicked ✅');
+  function handleInnerClick(event) {
+    event.stopPropagation();
+    alert('Button Clicked');
   }
 
   return (
